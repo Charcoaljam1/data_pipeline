@@ -1,0 +1,26 @@
+from pydantic import BaseModel, ConfigDict, Field
+
+class StockPrice(BaseModel):
+    open_price: float = Field(gt=0, alias="1. open")
+    high_price: float = Field(gt=0, alias="2. high")
+    low_price: float = Field(gt=0, alias="3. low")
+    close_price: float = Field(gt=0, alias="4. close")
+    volume: int = Field(ge=0, alias="5. volume")
+
+    model_config = ConfigDict(populate_by_name=True)
+
+class MetaData(BaseModel):
+    info: str = Field(alias= "1. Information")
+    symbol: str = Field(alias = "2. Symbol")
+    refresh_date: str = Field(alias = "3. Last Refreshed")
+    output_size: str = Field(alias = "4. Output Size")
+    time_zone: str = Field(alias = "5. Time Zone")
+
+    model_config = ConfigDict(populate_by_name=True)
+
+class Data(BaseModel):
+    metadata: MetaData = Field(alias = "Meta Data")
+    time_series: dict[str, StockPrice] = Field(alias = "Time Series (Daily)")
+
+    model_config = ConfigDict(populate_by_name=True)
+

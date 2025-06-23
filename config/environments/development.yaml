@@ -1,0 +1,8 @@
+# This file contains configuration and specifics for the local development environment.
+
+general_settings:
+  environment_name: "development"
+  output_directory: "data"
+
+api_settings:
+  alp 

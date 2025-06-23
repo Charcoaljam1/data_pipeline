@@ -1,0 +1,10 @@
+CREATE TABLE companies(
+    id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    symbol VARCHAR(25) NOT NULL UNIQUE,
+    company_name VARCHAR(100) NOT NULL,
+    exchange VARCHAR(25) NOT NULL,
+    currency CHAR(3) NOT NULL,
+    country VARCHAR(100) NOT NULL,
+    sector VARCHAR(100) NOT NULL,
+    industry VARCHAR(100) NOT NULL
+)

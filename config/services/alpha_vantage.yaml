@@ -1,0 +1,43 @@
+api_settings:
+  base_url: 'https://www.alphavantage.co/query'
+  default_output_size: 'full'
+
+api_function_mapping:
+  time_series_daily: "TIME_SERIES_DAILY"
+  company_overview: "OVERVIEW"
+  income_statement: "INCOME_STATEMENT"
+  balance_sheet: "BALANCE_SHEET"
+  cash_flow: "CASH_FLOW"
+
+
+tickers:
+  first:
+    - "MSFT"
+   
+  second:
+    - "APLD"
+    - "STRZ"
+    - "LMB"
+    - "MSTR"
+    - "AMR"
+    - "INOD"
+    - "DAC"
+    - "WFRD"
+    - "CLS"
+    - "STRL"
+    - "GME"
+    - "DDS"
+    - "MOD"
+    - "VRNA"
+    - "MARA"
+    - "NVDA"
+    - "LEU"
+    - "VIST"
+    - "FTAI"
+    - "PLTR"
+    - "SMCI"
+    - "FIX"
+    - "CELH"
+    - "PR"
+    - "HWM"
+
