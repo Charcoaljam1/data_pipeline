@@ -1,7 +1,6 @@
 # This file contains configuration and specifics for the local development environment.
 
 general_settings:
-  environment_name: "development"
   output_directory: "data/raw_json/"
 
 db_settings:
@@ -10,5 +9,3 @@ db_settings:
   DB_NAME: "stock_data_dev"
   DB_USER: "postgres"
 
-active_services:
-  - alpha_vantage
