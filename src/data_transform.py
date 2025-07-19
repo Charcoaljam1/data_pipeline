@@ -1,15 +1,25 @@
+from src.agents import BaseAgent, AgentStatus
+from abc import abstractmethod
 import pandas as pd
 import json
 
-def data(var):
-    try:
-        with open(f'{var}_info.json', 'r') as f:
-            json_data = json.load(f)
-            print('data loaded into data')
-    except Exception as e:
-        print('An error occured: {e}')
 
-    data = pd.DataFrame([json_data])
+
+class BaseDataTransformer(BaseAgent):
+    def __init__(self, name: str):
+        super().__init__(name=name, agent_type="Data Transformer")
+    @abstractmethod
+    def transform_data(self, data: dict, name: str):
+        pass
+
+
+class AlphaVantageTransformer(BaseDataTransformer):
+    def __init__(self):
+        super().__init__(name="Alpha Vantage")
+
+def transform_company_data(data: dict):
+
+    data = pd.DataFrame([data])
 
     # print(data.head())
 
@@ -19,3 +29,6 @@ def data(var):
 
     return data
 
+def transform_stock_data(data: dict):
+    data = pd.DataFrame([data])
+    

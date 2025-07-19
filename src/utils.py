@@ -1,4 +1,5 @@
 import yaml
+import json
 
 def open_yaml(filepath:str):
     """Helper to load a single YAML file."""
@@ -16,6 +17,13 @@ def open_yaml(filepath:str):
         print(f"An unexpected error occurred loading config file '{filepath}': {e}. Returning empty config.")
         return {}
 
+def open_json(filepath:str):
+    try:
+            with open(f'{filepath:str}_info.json', 'r') as f:
+                json_data = json.load(f)
+                return json_data
+    except Exception as e:
+        print('An error occured: {e}')
 
 
 from pathlib import Path
@@ -68,3 +76,13 @@ def config_getter(environment:str = "development") -> dict:
         full_config['services'][service] = open_yaml(serv_path)
 
     return full_config
+
+import json
+def save_to_json(data, symbol, function):
+    try: 
+        # This line needs to be configurable and dynamic as the  temporary storage path can change at any time. Thus, this line won't be hardcoded
+        with open(f'{symbol}_{function}.json', 'w') as f:
+            json.dump(data.json(),f, indent=4)
+            print('api_data.json created successfully')
+    except Exception as e:
+        print(f'Error writing to file: {e}')
