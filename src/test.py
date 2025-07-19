@@ -1,20 +1,3 @@
-import requests 
-import json
-
-def get_data(x):
-    response = requests.get(url='https://www.alphavantage.co/query?', 
-                            params={f'function': 'OVERVIEW', 'symbol':{x}, 'apikey':'WWNHUP2UL6ATA8QA', 'outputsize':'full'})
-
-    # print(response.status_code)
-    # print(response.json())
-
-    try: 
-        with open(f'{x}_info.json', 'w') as f:
-            json.dump(response.json(),f, indent=4)
-            print('api_data.json created successfully')
-    except Exception as e:
-        print(f'Error writing to file: {e}')
-
 
 from pydantic import BaseModel, ConfigDict, Field
 
