@@ -111,13 +111,13 @@ class AlphaVantageFetcher(APIDataFetcher):
 
             
 
-with open('alpha_vantage.yaml','r') as f:
-    config = yaml.safe_load(f)
+# with open('alpha_vantage.yaml','r') as f:
+#     config = yaml.safe_load(f)
 
-url = config['api_settings']['base_url']
-function = config['api_function_mapping']['time_series_daily']
-size = config['api_settings']['default_output_size']
-symbols = config['tickers']['second']
+# url = config['api_settings']['base_url']
+# function = config['api_function_mapping']['time_series_daily']
+# size = config['api_settings']['default_output_size']
+# symbols = config['tickers']['second']
 
 
 

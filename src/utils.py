@@ -19,7 +19,7 @@ def open_yaml(filepath:str):
 
 def open_json(filepath:str):
     try:
-            with open(f'{filepath:str}_info.json', 'r') as f:
+            with open(filepath, 'r') as f:
                 json_data = json.load(f)
                 return json_data
     except Exception as e:
